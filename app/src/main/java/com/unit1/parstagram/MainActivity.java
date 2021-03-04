@@ -33,22 +33,34 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_home:
                         fragment = new PostsFragment();
-//                        item.setIcon(R.drawable.instagram_home_filled_24);
-                        //menu.getItem(R.id.action_home).setIcon(R.drawable.instagram_new_post_outline_24);
-                        //menu.getItem(R.id.action_profile).setIcon(R.drawable.instagram_user_outline_24);
+                        item.setIcon(R.drawable.instagram_home_filled_24);
+                        if (menu.findItem(R.id.action_compose) != null) {
+                            menu.findItem(R.id.action_compose).setIcon(R.drawable.instagram_new_post_outline_24);
+                        }
+                        if (menu.findItem(R.id.action_profile) != null) {
+                            menu.findItem(R.id.action_profile).setIcon(R.drawable.instagram_user_outline_24);
+                        }
                         break;
                     case R.id.action_compose:
                         fragment = new ComposeFragment();
-//                        item.setIcon(R.drawable.instagram_new_post_filled_24);
-                        //menu.getItem(R.id.action_profile).setIcon(R.drawable.instagram_user_outline_24);
-//                        menu.getItem(R.id.action_home).setIcon(R.drawable.instagram_home_outline_24);
+                        item.setIcon(R.drawable.instagram_new_post_filled_24);
+                        if (menu.findItem(R.id.action_profile) != null) {
+                            menu.findItem(R.id.action_profile).setIcon(R.drawable.instagram_user_outline_24);
+                        }
+                        if (menu.findItem(R.id.action_home) != null) {
+                            menu.findItem(R.id.action_home).setIcon(R.drawable.instagram_home_outline_24);
+                        }
                         break;
                     case R.id.action_profile:
                     default:
                         fragment = new ProfileFragment();
-//                        item.setIcon(R.drawable.instagram_user_filled_24);
-//                        menu.getItem(R.id.action_home).setIcon(R.drawable.instagram_home_outline_24);
-//                        menu.getItem(R.id.action_compose).setIcon(R.drawable.instagram_new_post_outline_24);
+                        item.setIcon(R.drawable.instagram_user_filled_24);
+                        if (menu.findItem(R.id.action_home) != null) {
+                            menu.findItem(R.id.action_home).setIcon(R.drawable.instagram_home_outline_24);
+                        }
+                        if (menu.findItem(R.id.action_compose) != null) {
+                            menu.findItem(R.id.action_compose).setIcon(R.drawable.instagram_new_post_outline_24);
+                        }
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
